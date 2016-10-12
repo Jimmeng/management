@@ -1,0 +1,86 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<script src="../resources/js/JQuery-3.1.0.js"></script>
+<link rel="stylesheet" href="../resources/css/bootstrap.css">
+<script src="../resources/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../resources/css/Jim.css">
+
+<title>管理员界面</title>
+</head>
+<body>
+	<div class="center-block">
+
+		<div id="selectblock" class="col-xs-12">
+			<form class="form-inline" role="form"
+				style="text-align: center; margin-left: 10%; margin-right: 10%">
+				<div class="form-group">
+					<label for="info">請輸入</label> <input type="text"
+						class="form-control" id="info" placeholder="请输入">
+				</div>
+				<div>
+					<button type="button" class="btn btn-default" id="selectbyname">書名查詢</button>
+					<button type="button" class="btn btn-default" id="selectbywriter">作者查询</button>
+					<button type="button" class="btn btn-default" id="select">查询所有</button>
+					<div><label for="mohu">模糊搜索</label>
+					<input type=checkbox value="模糊搜索" id="mohu"></div>
+				</div>
+
+			</form>
+		</div>
+		<div style="display: none" class="col-xs-6" id="uploadbar" >
+			<form method="post"  enctype="multipart/form-data" class="form-inline" role="form"
+				style="text-align: center; margin-left: 10%; margin-right: 10%" id="uploadform">
+				<input type="file" name="file" class="form-control" >
+				<input type="button" value="上傳" class="form-control" id="uploadxls">
+				<input type="button" value="取消" class="form-control" id="cancelupload">
+			</form>
+		</div>
+		<div style="display: none" class="col-xs-6" id="hidebar" >
+			<form class="form-horizontal" role="form"
+				style="text-align: center; margin-left: 10%; margin-right: 10%">
+				<div class="form-group"><input class="col-xs-12" type="text" value="" id="id" style="display: none">
+					<label for="name" class="col-xs-4">书名：</label> <input
+						class="col-xs-8" type="text" class="form-control" id="name"
+						placeholder="书名"> <label class="col-xs-4" for="writer">作者：</label><input
+						class="col-xs-8" type="text" class="form-control" id="writer"
+						placeholder="作者"> <label class="col-xs-4" for="price">价格：</label><input
+						class="col-xs-8" type="number" class="form-control" id="price"
+						placeholder="价格"> <label class="col-xs-4" for="number">数量：</label><input
+						class="col-xs-8" type="number" class="form-control" id="number"
+						placeholder="数量">
+				</div>
+
+				<div>
+					<button type="button" class="btn btn-default" id="ensure">确认</button>
+					<button type="button" class="btn btn-default" id="cancel">取消</button>
+				</div>
+			</form>
+		</div>
+		<div style="text-align: center" class="col-xs-12">
+			<button type="button" class="btn btn-default" id="add">添加</button>
+			<button type="button" class="btn btn-default" id="update">修改</button>
+			<button type="button" class="btn btn-default" id="delete">删除</button>
+			<button type="button" class="btn btn-default" id="upload">上傳</button>
+		</div>
+		
+		<div style="text-align: center; margin-left: 10%; margin-right: 10%">
+			<table class="table table-hover table-bordered">
+				<caption>书籍信息</caption>
+				<thead align="center">
+					<tr>
+						<th style="width:10%;"><input type='checkbox' value='false' id='selectall'>全选/取消全选</th>	
+						<th style="text-align: center">名称</th>
+						<th style="text-align: center">作者</th>
+						<th style="text-align: center">价格</th>
+						<th style="text-align: center">数量</th>
+					</tr>
+				</thead>
+				<tbody id="tbody">
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="../resources/js/work.js"></script>
+</body>

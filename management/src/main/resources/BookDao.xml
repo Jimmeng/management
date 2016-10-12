@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="management.dao.BookDao">
+    <select id="getBookByName" parameterType="java.lang.String" resultType="management.entity.Book">
+        select * from book where name=#{name}
+    </select>
+    <select id="getBookByWriter" parameterType="java.lang.String" resultType="management.entity.Book">
+        select * from book where writer=#{writer}
+    </select>
+    <select id="getBookByNameFuzzy" parameterType="java.lang.String" resultType="management.entity.Book">
+        select * from book where name like #{name}
+    </select>
+    <select id="getBookByWriterFuzzy" parameterType="java.lang.String" resultType="management.entity.Book">
+        select * from book where writer like #{writer}
+    </select>
+    <select id="ifBookSame" parameterType="management.entity.Book" resultType="java.lang.Integer">
+        select count(id) from book where name=#{name} and writer=#{writer}
+    </select>
+    <select id="getAllBooks" resultType="management.entity.Book">
+        select * from book
+    </select>
+    <insert id="addBook" parameterType="management.entity.Book" flushCache="true"  useGeneratedKeys="true" keyProperty="id">
+        insert into book (id,name,writer,price,number) values (#{id},#{name},#{writer},#{price},#{number})
+    </insert>
+    <update id="updateBook"  parameterType="management.entity.Book">
+        update book set name=#{name}, writer=#{writer}, price=#{price}, number=#{number} where id=#{id}
+    </update>
+    <delete id= "deleteByPrimaryKey" parameterType= "java.util.List">
+        delete from book where id in
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

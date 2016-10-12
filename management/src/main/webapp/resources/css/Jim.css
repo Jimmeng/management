@@ -1,0 +1,20 @@
+body{
+  background-image:url(../img/92.jpg);
+  /*background-size: container;
+  cubic-bezier(0,1,1,1)*/animation: change 3s infinite steps(1,start);
+  /*-moz-animation: change 3s infinite steps(1,start);
+  -webkit-animation: change 3s infinite steps(1,start);*/
+}
+button ,input{
+	background:transparent !important;
+}
+/*@-webkit-keyframes change 
+{
+50%   {background-image: url(../img/77.jpg);}
+100% {background-image: url(../img/92.jpg);}
+}*/
+@keyframes change 
+{
+50%   {background-image: url(../img/77.jpg);}
+100%   {background-image: url(../img/92.jpg);}
+}/**/
